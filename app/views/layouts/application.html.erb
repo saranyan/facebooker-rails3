@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fbtest</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+ <%= fb_connect_async_js %>
+ <% if current_facebook_user != nil %>
+    <%=fb_logout_link("Logout", request.url) %><br />
+  <% else %>
+    <%= fb_login_and_redirect( url_for(:controller=>"home"), :perms=>"user_likes,user_birthday,user_interests,friends_interests, user_about_me") %>
+  <% end %>
+  <h1> test facebook app </h1> 
+<%= yield %>
+
+</body>
+</html>

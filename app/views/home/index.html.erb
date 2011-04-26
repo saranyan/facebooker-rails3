@@ -1,0 +1,9 @@
+
+<% fbuser = current_facebook_user.fetch %>
+<h2> Welcome, <%= fbuser.name %> </h2>
+<h3> I have taken the liberty of listing your friends... :) </h3>
+<% current_facebook_user.friends(:id, :name).each do |friend| %>
+  <p> <%= friend.name %> </p>
+<% end %>
+
+
