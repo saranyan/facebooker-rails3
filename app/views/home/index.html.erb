@@ -1,9 +1,5 @@
+<h1>Welcome <%=@name%>
 
-<% fbuser = current_facebook_user.fetch %>
-<h2> Welcome, <%= fbuser.name %> </h2>
-<h3> I have taken the liberty of listing your friends... :) </h3>
-<% current_facebook_user.friends(:id, :name).each do |friend| %>
-  <p> <%= friend.name %> </p>
+<% @friends_and_their_interests.each_pair do |k,v| %>
+  <h2><%=v[:name]%> (<%=v[:interests]%>)</h2><hr/>
 <% end %>
-
-
